@@ -3,6 +3,7 @@ import React, { forwardRef, useState } from 'react';
 
 const Input = forwardRef(({ label, error, ...props }, ref) => {
   const [text, setText] = useState('');
+
   return (
     <div className="input">
       <label htmlFor="validationServer01" className="form-label">

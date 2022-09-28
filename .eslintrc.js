@@ -25,5 +25,6 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-return-await': 'off',
     'import/prefer-default-export': 'off',
+    'react/destructuring-assignment': 'off',
   },
 };
