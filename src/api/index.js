@@ -11,9 +11,9 @@ export default {
     return await methods.drop(`employee/${id}`);
   },
   async createEmployee(body) {
-    return await methods.post('employee', body);
+    return await methods.post('employee/', body);
   },
   async editEmployee(id, body) {
-    return await methods.put('employee', { _id: id, ...body });
+    return await methods.put('employee/', { _id: id, ...body });
   },
 };
