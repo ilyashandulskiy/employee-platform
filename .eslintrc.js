@@ -26,5 +26,6 @@ module.exports = {
     'no-return-await': 'off',
     'import/prefer-default-export': 'off',
     'react/destructuring-assignment': 'off',
+    'jsx-a11y/control-has-associated-label': 'off',
   },
 };

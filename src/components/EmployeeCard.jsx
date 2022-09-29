@@ -20,7 +20,6 @@ function EmployeeCard({
         <button
           onClick={onEdit}
           type="button"
-          href="#"
           className="btn btn-outline-primary"
         >
           Edit employee

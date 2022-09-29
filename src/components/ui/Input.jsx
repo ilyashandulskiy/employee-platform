@@ -6,7 +6,7 @@ const Input = forwardRef(({ label, error, ...props }, ref) => {
 
   return (
     <div className="input">
-      <label htmlFor="validationServer01" className="form-label">
+      <p className="form-label">
         {label}
         <input
           {...props}
@@ -14,9 +14,8 @@ const Input = forwardRef(({ label, error, ...props }, ref) => {
           type="text"
           onInput={(val) => setText(val.currentTarget.value)}
           className={cn(['form-control', { 'is-valid': !error && text.length }, { 'is-invalid': error }])}
-          id="validationServer01"
         />
-      </label>
+      </p>
       {error && (
       <p className="invalid-feedback">
         {error?.message || 'Field is incorrect'}

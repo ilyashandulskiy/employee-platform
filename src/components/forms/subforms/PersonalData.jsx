@@ -1,7 +1,10 @@
 import React from 'react';
+import Date from '../../ui/Date';
 import Input from '../../ui/Input';
 
-function PersonalData({ register, formState }) {
+function PersonalData({
+  register, formState, Controller, control,
+}) {
   return (
     <>
       <h4>Personal data</h4>
@@ -22,7 +25,7 @@ function PersonalData({ register, formState }) {
           label="Age"
           {...register('age', {
             valueAsNumber: true,
-            validate: (val) => (+val > 18 && +val < 99) || !val,
+            validate: (val) => (+val >= 18 && +val < 99 && +val !== 0) || !val,
           })}
           error={formState.errors?.age}
         />
@@ -31,6 +34,46 @@ function PersonalData({ register, formState }) {
           maxLength="1"
           {...register('favoriteLetter', { })}
           error={formState.errors?.favoriteLetter}
+        />
+      </div>
+      <div className="rows">
+        <Controller
+          control={control}
+          name="dates.birthday"
+          render={({
+            field: {
+              onChange, onBlur, value, name, ref,
+            },
+            fieldState: {
+              invalid, isTouched, isDirty, error,
+            },
+          }) => (
+            <Date
+              onChange={onChange}
+              value={value || ''}
+              error={error}
+              label="Birth date"
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="dates.start"
+          render={({
+            field: {
+              onChange, onBlur, value, name, ref,
+            },
+            fieldState: {
+              invalid, isTouched, isDirty, error,
+            },
+          }) => (
+            <Date
+              onChange={onChange}
+              value={value || ''}
+              error={error}
+              label="Start date"
+            />
+          )}
         />
       </div>
     </>
