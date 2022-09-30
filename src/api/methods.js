@@ -2,7 +2,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8080/',
+  baseURL: process.env.REACT_APP_API,
 });
 
 const onError = () => toast.error('Connection error');
