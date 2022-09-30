@@ -1,4 +1,5 @@
 import React from 'react';
+import validate from '../../../helpers/validate';
 import Input from '../../ui/Input';
 
 function WorkProgress({ register, formState }) {
@@ -11,7 +12,7 @@ function WorkProgress({ register, formState }) {
           {...register('work.hours', {
             required: true,
             valueAsNumber: true,
-            validate: (val) => (+val >= 0 && +val < 1000),
+            validate: validate.numberBetween(0, 1000),
           })}
           error={formState.errors?.work?.hours}
         />
@@ -20,7 +21,7 @@ function WorkProgress({ register, formState }) {
           {...register('work.dealsDone', {
             required: true,
             valueAsNumber: true,
-            validate: (val) => (+val >= 0 && +val < 1000),
+            validate: validate.numberBetween(0, 1000),
           })}
           error={formState.errors?.work?.dealsDone}
         />
@@ -29,7 +30,7 @@ function WorkProgress({ register, formState }) {
           {...register('work.weekHours', {
             required: true,
             valueAsNumber: true,
-            validate: (val) => (+val >= 0 && +val < 1000),
+            validate: validate.numberBetween(0, 1000),
           })}
           error={formState.errors?.work?.weekHours}
         />
@@ -38,7 +39,7 @@ function WorkProgress({ register, formState }) {
           {...register('work.weekDeals', {
             required: true,
             valueAsNumber: true,
-            validate: (val) => (+val >= 0 && +val < 1000),
+            validate: validate.numberBetween(0, 1000),
           })}
           error={formState.errors?.work?.weekDeals}
         />

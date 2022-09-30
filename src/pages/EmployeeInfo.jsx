@@ -11,7 +11,7 @@ function EmployeeInfo() {
   const { data, isLoading, isError } = useEmployee(id);
   const navigate = useNavigate();
 
-  const onSave = async (body) => {
+  const onSave = async (body, ...props) => {
     await api.editEmployee(id, body);
     toast.success('Employee saved!');
     navigate('/');

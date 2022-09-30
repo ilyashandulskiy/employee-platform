@@ -1,4 +1,5 @@
 import React from 'react';
+import validate from '../../../helpers/validate';
 import Date from '../../ui/Date';
 import Input from '../../ui/Input';
 
@@ -25,7 +26,7 @@ function PersonalData({
           label="Age"
           {...register('age', {
             valueAsNumber: true,
-            validate: (val) => (+val >= 18 && +val < 99 && +val !== 0) || !val,
+            validate: validate.numberBetweenOptional(18, 99),
           })}
           error={formState.errors?.age}
         />
@@ -42,10 +43,10 @@ function PersonalData({
           name="dates.birthday"
           render={({
             field: {
-              onChange, onBlur, value, name, ref,
+              onChange, value,
             },
             fieldState: {
-              invalid, isTouched, isDirty, error,
+              error,
             },
           }) => (
             <Date
@@ -61,10 +62,10 @@ function PersonalData({
           name="dates.start"
           render={({
             field: {
-              onChange, onBlur, value, name, ref,
+              onChange, value,
             },
             fieldState: {
-              invalid, isTouched, isDirty, error,
+              error,
             },
           }) => (
             <Date
